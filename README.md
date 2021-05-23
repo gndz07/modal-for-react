@@ -13,11 +13,12 @@ This is a simple example of modal-of-react being used in a React app:
 
 ```
 import React, { useState } from 'react';
-import Modal from 'modal-for-react';
+import { Modal } from 'modal-for-react';
 
 export default function ExampleModal() {
 	const [isModalActive, setModalActive] = useState(false);
 	const handleClickModal = () => isModalActive ? setModalActive(false) : setModalActive(true);
+
 	return (
 		<div>
 		<button onClick={handleClickModal}>Open modal</button>
