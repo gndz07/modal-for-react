@@ -2,15 +2,23 @@
   "name": "modal-for-react",
   "description": "Simple customizable modal component for React",
   "author": "gndz07",
-  "keywords": ["react", "modal", "component", "ui"],
-  "version": "0.1.0",
+  "keywords": [
+    "react",
+    "modal",
+    "component",
+    "ui"
+  ],
+  "version": "0.1.1",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "files": [ "dist", "README.md" ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/gndz07/modal-for-react"
+    "type": "git",
+    "url": "git+https://github.com/gndz07/modal-for-react"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
