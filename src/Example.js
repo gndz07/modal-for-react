@@ -12,6 +12,7 @@ export default function ExampleModal() {
 			isActive={isModalActive} 
 			modalContent= "This is a modal" 
 			backgroundStyle={{ backgroundColor:"rgba(0,0,0,0.2)" }} 
+			refresh={true}
 		/>
 		</div>
 	)

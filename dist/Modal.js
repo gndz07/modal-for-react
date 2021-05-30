@@ -23,7 +23,8 @@ const Modal = _ref => {
     backgroundStyle,
     contentStyle,
     exitBtn,
-    exitBtnStyle
+    exitBtnStyle,
+    refresh
   } = _ref;
 
   const backStyle = _objectSpread({
@@ -57,13 +58,21 @@ const Modal = _ref => {
     cursor: "pointer"
   }, exitBtnStyle);
 
+  const handleClickExit = () => {
+    handleClick();
+
+    if (refresh) {
+      window.location.reload();
+    }
+  };
+
   return /*#__PURE__*/_react.default.createElement("div", {
     style: backStyle
   }, /*#__PURE__*/_react.default.createElement("div", {
     style: innerStyle
   }, modalContent, /*#__PURE__*/_react.default.createElement("div", {
     style: exitStyle,
-    onClick: handleClick
+    onClick: handleClickExit
   }, exitBtn ? exitBtn : "X")));
 };
 
