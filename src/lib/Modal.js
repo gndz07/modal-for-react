@@ -1,6 +1,6 @@
 import React from "react";
 
-const Modal = ({ isActive, handleClick, modalContent, backgroundStyle, contentStyle, exitBtn, exitBtnStyle }) => {
+const Modal = ({ isActive, handleClick, modalContent, backgroundStyle, contentStyle, exitBtn, exitBtnStyle, refresh }) => {
 	const backStyle = {
 		display: isActive ? "block" : "none",
 		position: "absolute",
@@ -32,12 +32,18 @@ const Modal = ({ isActive, handleClick, modalContent, backgroundStyle, contentSt
 		cursor: "pointer",
 		...exitBtnStyle
 	}
+
+	const handleClickExit = () => {
+		handleClick();
+
+		if (refresh) { window.location.reload() }
+	}
 	
 	return(
 		<div style={backStyle}>
 			<div style={innerStyle}>
 				{modalContent}
-				<div style={exitStyle} onClick={handleClick}>{exitBtn ? exitBtn : "X"}</div>
+				<div style={exitStyle} onClick={handleClickExit}>{exitBtn ? exitBtn : "X"}</div>
 			</div>
 		</div>
 	)

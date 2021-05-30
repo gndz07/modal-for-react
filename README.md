@@ -28,6 +28,7 @@ export default function ExampleModal() {
 			modalContent= "This is a modal" 
 			backgroundStyle={{ backgroundColor:"rgba(0,0,0,0.2)" }} 
 			contentStyle={{ color: "red" }} 
+			refresh={true}
 		/>
 		</div>
 	)
@@ -46,9 +47,9 @@ Props that could be passed to Modal component:
 
 - **modalContent**(required): content/message in the modal
 
-- **backgroundStyle**(optional): custom style for background. Default background is full screen size with rgba(255,255,255,0.35) color.
+- **backgroundStyle**(optional): object, custom style for background. Default background is full screen size with rgba(255,255,255,0.35) color.
 
-- **contentStyle**(optional): custom style for the content inside the modal.
+- **contentStyle**(optional): object, custom style for the content inside the modal.
 
 - **exitBtn**(optional): element to close the modal. Default element is "X". You can pass an icon, for example:
 	`<Modal 
@@ -58,4 +59,6 @@ Props that could be passed to Modal component:
 			exitBtn = <i class="fas fa-times-circle"></i>
 	/>`
 
-- **exitBtnStyle**(optional): style for the exit button element. By default this element is positioned on the right top corner of the modal.
+- **exitBtnStyle**(optional): object, style for the exit button element. By default this element is positioned on the right top corner of the modal.
+
+- **refresh**(optional): boolean, if set to true the page will refresh after the the exit button clicked. Default value is false.
