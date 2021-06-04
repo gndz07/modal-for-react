@@ -1,4 +1,4 @@
-# modal-for-react
+# [modal-for-react](https://www.npmjs.com/package/modal-for-react)
 
 Simple customizable modal component for React apps.
 
