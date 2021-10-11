@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
+import useClickOutsideRef from "./useClickOutsideRef";
 
-const Modal = ({ isActive, handleClick, modalContent, backgroundStyle, contentStyle, exitBtn, exitBtnStyle, refresh }) => {
+function Modal ({ isActive, setState, modalContent, backgroundStyle, contentStyle, exitBtn, exitBtnStyle, refresh, persist }) {
+	const modalRef = useClickOutsideRef(() => {if (isActive && !persist) setState(false)})
+
+	//handle close modal by esc button
+	const handleEscape = useCallback((e) => {
+		if (e.keyCode === 27) setState(false)
+	})
+
+	useEffect(() => {
+		if (isActive) {
+			document.addEventListener('keydown', handleEscape, false);
+		}
+		return () => {
+			document.removeEventListener('keydown', handleEscape, false);
+		}
+	}, [handleEscape, isActive]);
+
 	const backStyle = {
 		display: isActive ? "block" : "none",
 		position: "absolute",
@@ -34,14 +51,14 @@ const Modal = ({ isActive, handleClick, modalContent, backgroundStyle, contentSt
 	}
 
 	const handleClickExit = () => {
-		handleClick();
+		setState(false);
 
 		if (refresh) { window.location.reload() }
 	}
 	
 	return(
 		<div style={backStyle}>
-			<div style={innerStyle}>
+			<div style={innerStyle} ref={modalRef}>
 				{modalContent}
 				<div style={exitStyle} onClick={handleClickExit}>{exitBtn ? exitBtn : "X"}</div>
 			</div>

@@ -2,6 +2,8 @@
 
 Simple customizable modal component for React apps.
 
+**updated v1.0.0** pass the state setter directly, added function to close modal when user press `esc` or click outside of modal (or to persist the modal on outside click)
+
 ## Installation
 
 To install using npm:
@@ -23,12 +25,12 @@ export default function ExampleModal() {
 		<div>
 		<button onClick={handleClickModal}>Open modal</button>
 		<Modal 
-			handleClick={handleClickModal} 
+			setState={setModalActive} 
 			isActive={isModalActive} 
 			modalContent= "This is a modal" 
 			backgroundStyle={{ backgroundColor:"rgba(0,0,0,0.2)" }} 
-			contentStyle={{ color: "red" }} 
-			refresh={true}
+			refresh
+			persist
 		/>
 		</div>
 	)
@@ -41,7 +43,7 @@ Create a function that will change the state and pass this function as `handleCl
 
 Props that could be passed to Modal component:
 
-- **handleClick**(required): function that handle the change of state in the parent component
+- **setState**(required): function that handle the state change in the parent component
 
 - **isActive**(required): refer to the actual state of the parent component
 
@@ -62,3 +64,5 @@ Props that could be passed to Modal component:
 - **exitBtnStyle**(optional): object, style for the exit button element. By default this element is positioned on the right top corner of the modal.
 
 - **refresh**(optional): boolean, if set to true the page will refresh after the the exit button clicked. Default value is false.
+
+- **persist**(optional): boolean, if set to true the modal would not be closed when user clicked outside of the modal. Default value is false.
