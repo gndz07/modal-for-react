@@ -39,8 +39,6 @@ export default function ExampleModal() {
 
 You have to set a state for the modal in the parent component.
 
-Create a function that will change the state and pass this function as `handleClick` props for the Modal component.
-
 Props that could be passed to Modal component:
 
 - **setState**(required): function that handle the state change in the parent component
